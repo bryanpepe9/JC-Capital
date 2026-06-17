@@ -67,7 +67,21 @@ body.cursor-active .cursor__ring { width: 64px; height: 64px; background: rgba(2
   font-weight: 500; transform: translateY(-1px);
 }
 
-.nav { display: flex; align-items: center; gap: clamp(1.4rem, 2.5vw, 2.8rem); }
+.nav { display: flex; align-items: center; gap: clamp(1.4rem, 2.5vw, 2.8rem); margin-left: auto; }
+
+/* Right-side cluster: language toggle (+ mobile menu button) */
+.header__actions { display: flex; align-items: center; gap: clamp(1rem, 2vw, 1.8rem); margin-left: clamp(1.4rem, 2.5vw, 2.8rem); }
+
+.lang { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.74rem; letter-spacing: 0.1em; }
+.lang__opt {
+  display: inline-flex; align-items: center; gap: 0.35rem; color: var(--gray);
+  font-weight: 500; letter-spacing: 0.1em; transition: color var(--t-fast);
+}
+.lang__opt:hover { color: var(--ivory); }
+.lang__opt.is-active { color: var(--gold); }
+.lang__flag { font-size: 1.05em; line-height: 1; }
+.lang__sep { color: var(--gray-deep); }
+.lang--menu { margin-bottom: 1.4rem; font-size: 0.85rem; }
 .nav__link {
   position: relative; font-size: 0.82rem; letter-spacing: 0.06em; color: var(--ivory-dim);
   transition: color var(--t-fast);

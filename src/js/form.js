@@ -12,7 +12,9 @@
        })
      }
    ============================================================ */
-export function initForm() {
+import { t } from './i18n.js'
+
+export function initForm(lang = 'pt') {
   const form = document.getElementById('contactForm')
   const status = document.getElementById('formStatus')
   if (!form) return
@@ -33,14 +35,14 @@ export function initForm() {
 
     if (!valid) {
       status.style.color = '#c2664f'
-      status.textContent = 'Please complete the required fields.'
+      status.textContent = t(lang, 'form.required')
       return
     }
 
     const btn = form.querySelector('button[type="submit"]')
     const label = btn.querySelector('span')
     const original = label.textContent
-    label.textContent = 'Sending…'
+    label.textContent = t(lang, 'form.sending')
     btn.disabled = true
 
     try {
@@ -49,10 +51,10 @@ export function initForm() {
       // -----------------------------------------------------------------
       form.reset()
       status.style.color = 'var(--gold)'
-      status.textContent = 'Thank you. Your message has been received — we will be in touch shortly.'
+      status.textContent = t(lang, 'form.success')
     } catch (err) {
       status.style.color = '#c2664f'
-      status.textContent = 'Something went wrong. Please email contato@jccapital.com.br directly.'
+      status.textContent = t(lang, 'form.error')
     } finally {
       label.textContent = original
       btn.disabled = false

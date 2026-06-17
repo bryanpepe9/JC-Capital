@@ -12,10 +12,12 @@ import { initReveals, initHeadlines, initCounters } from './animations.js'
 import { initHero } from './hero.js'
 import { initNetwork } from './network.js'
 import { initForm } from './form.js'
+import { detectLang, applyLang, initLangToggle } from './i18n.js'
 
 gsap.registerPlugin(ScrollTrigger)
 
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+const lang = detectLang()
 
 /* —— Preloader ————————————————————————————————————————— */
 function runPreloader(onDone) {
@@ -56,8 +58,8 @@ function boot() {
   if (yr) yr.textContent = new Date().getFullYear()
 
   initCursor()
-  initNav()
-  initForm()
+  initNav(lang)
+  initForm(lang)
 
   // Visual layers — wrapped so a failure never blocks the page
   try { initHero() } catch (e) { console.warn('Hero canvas disabled:', e) }
@@ -89,6 +91,10 @@ function playHeroIntro() {
 
 document.body.classList.add('is-loading')
 window.addEventListener('DOMContentLoaded', () => {
+  // Apply the active language FIRST, before any text is split for animation
+  applyLang(lang)
+  initLangToggle(lang)
+
   // Wrap hero headline lines so they can slide up from a mask
   document.querySelectorAll('.hero__title .line').forEach(line => {
     line.innerHTML = `<span class="line-inner">${line.innerHTML}</span>`

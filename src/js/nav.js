@@ -2,7 +2,9 @@
    Navigation — hide-on-scroll header, scrolled state,
    mobile menu toggle, and smooth anchor scrolling.
    ============================================================ */
-export function initNav() {
+import { t } from './i18n.js'
+
+export function initNav(lang = 'pt') {
   const header = document.getElementById('header')
   const toggle = document.getElementById('menuToggle')
   const menu = document.getElementById('mobileMenu')
@@ -28,13 +30,13 @@ export function initNav() {
     document.body.classList.remove('menu-open')
     toggle.setAttribute('aria-expanded', 'false')
     menu.setAttribute('aria-hidden', 'true')
-    toggle.setAttribute('aria-label', 'Open menu')
+    toggle.setAttribute('aria-label', t(lang, 'aria.menuOpen'))
   }
   const openMenu = () => {
     document.body.classList.add('menu-open')
     toggle.setAttribute('aria-expanded', 'true')
     menu.setAttribute('aria-hidden', 'false')
-    toggle.setAttribute('aria-label', 'Close menu')
+    toggle.setAttribute('aria-label', t(lang, 'aria.menuClose'))
   }
   toggle?.addEventListener('click', () => {
     document.body.classList.contains('menu-open') ? closeMenu() : openMenu()

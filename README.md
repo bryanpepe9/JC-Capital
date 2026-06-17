@@ -40,6 +40,8 @@ src/
     nav.js              # header behaviour, mobile menu, smooth scroll
     cursor.js           # custom cursor (desktop only)
     form.js             # contact form validation + success state
+    i18n.js             # language detection + apply + PT/EN toggle
+    translations.js     # ALL copy, PT + EN (the source of truth)
 public/
   images/               # drop real images here (see images/README.md)
   favicon.svg           # replace with the official mark
@@ -59,6 +61,22 @@ public/
    site and can be updated in the Contact section + footer.
 5. **SEO / meta** — title, description and Open Graph tags are at the top of
    `index.html`.
+
+## Languages (Portuguese / English)
+The site is bilingual. **Portuguese is the default**; visitors can switch with the
+🇧🇷 PT / 🇺🇸 EN toggle in the header (and in the mobile menu).
+
+- **All copy lives in [`src/js/translations.js`](src/js/translations.js)** under `pt`
+  and `en`. To change wording, edit it there — the matching text in `index.html`
+  is only a no-JavaScript fallback. New text elements need a `data-i18n="your.key"`
+  attribute plus the key in both `pt` and `en`.
+- **Default language detection** ([`src/js/i18n.js`](src/js/i18n.js)): a saved choice
+  wins; otherwise a Portuguese-speaking browser (e.g. visitors in Brazil) gets PT and
+  everyone else gets EN. This uses the **browser language**, not IP geolocation —
+  no network call, no third-party service, no flash of the wrong language.
+  To make Portuguese the default for *everyone*, change `detectLang()` to `return 'pt'`
+  (a comment in the file marks the exact spot).
+- Switching language stores the choice (`localStorage`) and reloads the page.
 
 ## Accessibility & performance notes
 - Respects `prefers-reduced-motion` (animations + WebGL loop are disabled/static).
