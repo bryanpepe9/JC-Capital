@@ -60,12 +60,8 @@ body.cursor-active .cursor__ring { width: 64px; height: 64px; background: rgba(2
   display: flex; align-items: center; justify-content: space-between; gap: 2rem;
 }
 
-.brand { display: inline-flex; align-items: baseline; gap: 0.4rem; }
-.brand__mark { font-family: var(--serif); font-size: 1.5rem; letter-spacing: 0.04em; color: var(--ivory); }
-.brand__name {
-  font-size: 0.72rem; letter-spacing: 0.34em; text-transform: uppercase; color: var(--gold);
-  font-weight: 500; transform: translateY(-1px);
-}
+.brand { display: inline-flex; align-items: center; }
+.brand__logo { height: clamp(22px, 2.3vw, 30px); width: auto; display: block; }
 
 .nav { display: flex; align-items: center; gap: clamp(1.4rem, 2.5vw, 2.8rem); margin-left: auto; }
 
@@ -173,9 +169,8 @@ body.menu-open .mobile-menu__link:nth-child(6) { animation-delay: 0.45s; }
 /* —— Footer ——————————————————————————————————————————— */
 .footer { border-top: 1px solid var(--line-soft); padding-block: clamp(3rem, 6vw, 5rem); }
 .footer__inner { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 2.5rem; align-items: start; }
-.footer__brand .brand__mark { font-size: 2rem; }
-.footer__brand .brand__name { font-size: 0.72rem; }
-.footer__tag { margin-top: 1.2rem; color: var(--gray); max-width: 22rem; font-size: 0.95rem; }
+.footer__logo { height: 38px; width: auto; display: block; }
+.footer__tag { margin-top: 1.4rem; color: var(--gray); max-width: 22rem; font-size: 0.95rem; }
 .footer__nav { display: flex; flex-direction: column; gap: 0.8rem; font-size: 0.9rem; color: var(--ivory-dim); }
 .footer__nav a { width: fit-content; transition: color var(--t-fast); }
 .footer__nav a:hover { color: var(--gold); }
