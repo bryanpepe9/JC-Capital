@@ -1,0 +1,19 @@
+{
+  "name": "jc-capital",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "JC Capital — Strategic advisory for real estate, hospitality and branded living.",
+  "scripts": {
+    "dev": "vite --port 5180",
+    "build": "vite build",
+    "preview": "vite preview --port 5180"
+  },
+  "devDependencies": {
+    "vite": "^5.4.10"
+  },
+  "dependencies": {
+    "gsap": "^3.12.5",
+    "three": "^0.169.0"
+  }
+}

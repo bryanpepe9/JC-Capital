@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ============================================================
+       SEO / META  —  replace descriptions & URLs as needed
+       ============================================================ -->
+  <title>JC Capital — Strategic Advisory for Real Estate, Hospitality & Branded Living</title>
+  <meta name="description" content="JC Capital is a boutique strategic advisory and business development platform connecting capital, global brands and landmark real estate and hospitality developments across Brazil and international markets." />
+  <meta name="theme-color" content="#0b0b0a" />
+  <link rel="canonical" href="https://jccapital.com.br/" />
+
+  <!-- Open Graph / social sharing -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="JC Capital — Strategic Advisory for Real Estate, Hospitality & Branded Living" />
+  <meta property="og:description" content="Connecting capital, global brands and landmark developments." />
+  <meta property="og:url" content="https://jccapital.com.br/" />
+  <!-- REPLACE: social share image (1200x630). Place file in /public/images/ -->
+  <meta property="og:image" content="/images/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Favicon — REPLACE /public/favicon.svg with the JC Capital mark -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Fonts: Cormorant Garamond (editorial serif) + Inter (UI / body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="/src/styles/main.css" />
+</head>
+<body>
+  <!-- ============================================================
+       PRELOADER
+       ============================================================ -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="preloader__inner">
+      <span class="preloader__mark">JC</span>
+      <span class="preloader__bar"><span class="preloader__fill" id="preloaderFill"></span></span>
+      <span class="preloader__count" id="preloaderCount">00</span>
+    </div>
+  </div>
+
+  <!-- Custom cursor (desktop, pointer devices only) -->
+  <div class="cursor" id="cursor" aria-hidden="true">
+    <span class="cursor__dot"></span>
+    <span class="cursor__ring"></span>
+  </div>
+
+  <!-- ============================================================
+       HEADER / NAVIGATION
+       ============================================================ -->
+  <header class="header" id="header">
+    <div class="header__inner">
+      <!-- REPLACE: text logo with JC Capital SVG/PNG logo if available -->
+      <a href="#home" class="brand" data-cursor="link" aria-label="JC Capital — home">
+        <span class="brand__mark">JC</span>
+        <span class="brand__name">Capital</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="#about" class="nav__link" data-cursor="link">About</a>
+        <a href="#expertise" class="nav__link" data-cursor="link">Expertise</a>
+        <a href="#branded" class="nav__link" data-cursor="link">Branded Residences</a>
+        <a href="#founder" class="nav__link" data-cursor="link">Founder</a>
+        <a href="#contact" class="nav__cta" data-cursor="link">Contact</a>
+      </nav>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile / fullscreen menu -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <nav class="mobile-menu__nav" aria-label="Mobile">
+      <a href="#home" class="mobile-menu__link"><span class="mobile-menu__idx">01</span>Home</a>
+      <a href="#about" class="mobile-menu__link"><span class="mobile-menu__idx">02</span>About</a>
+      <a href="#expertise" class="mobile-menu__link"><span class="mobile-menu__idx">03</span>Expertise</a>
+      <a href="#branded" class="mobile-menu__link"><span class="mobile-menu__idx">04</span>Branded Residences</a>
+      <a href="#founder" class="mobile-menu__link"><span class="mobile-menu__idx">05</span>Founder</a>
+      <a href="#contact" class="mobile-menu__link"><span class="mobile-menu__idx">06</span>Contact</a>
+    </nav>
+    <div class="mobile-menu__foot">
+      <a href="mailto:contato@jccapital.com.br">contato@jccapital.com.br</a>
+      <a href="tel:+551155057771">+55 11 5505 7771</a>
+    </div>
+  </div>
+
+  <main id="main">
+    <!-- ============================================================
+         1 · HERO
+         ============================================================ -->
+    <section class="hero" id="home">
+      <!-- Three.js global-network canvas renders behind the content -->
+      <canvas class="hero__canvas" id="heroCanvas" aria-hidden="true"></canvas>
+      <div class="hero__veil" aria-hidden="true"></div>
+
+      <div class="hero__inner">
+        <p class="eyebrow hero__eyebrow" data-reveal>
+          <span class="eyebrow__line"></span>
+          Strategic Advisory · Real Estate · Hospitality
+        </p>
+
+        <h1 class="hero__title">
+          <span class="line" data-reveal-line>Connecting Capital,</span>
+          <span class="line" data-reveal-line>Global Brands &amp; <em>Landmark</em></span>
+          <span class="line" data-reveal-line>Developments.</span>
+        </h1>
+
+        <p class="hero__sub" data-reveal>
+          JC Capital structures and accelerates high-end real estate and hospitality
+          opportunities by connecting developers, investors, global brands and strategic
+          partners across Brazil and international markets.
+        </p>
+
+        <div class="hero__actions" data-reveal>
+          <a href="#expertise" class="btn btn--primary" data-cursor="link">
+            <span>Explore Our Expertise</span>
+          </a>
+          <a href="#contact" class="btn btn--ghost" data-cursor="link">
+            <span>Start a Strategic Conversation</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero__scroll" aria-hidden="true">
+        <span>Scroll</span>
+        <span class="hero__scroll-line"></span>
+      </div>
+    </section>
+
+    <!-- Capability marquee -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Capital Solutions</span><span class="marquee__dot">✦</span>
+        <span>Branded Residences</span><span class="marquee__dot">✦</span>
+        <span>Strategic Partnerships</span><span class="marquee__dot">✦</span>
+        <span>Hospitality Development</span><span class="marquee__dot">✦</span>
+        <span>Brand Licensing</span><span class="marquee__dot">✦</span>
+        <span>Project Structuring</span><span class="marquee__dot">✦</span>
+        <!-- duplicate for seamless loop -->
+        <span>Capital Solutions</span><span class="marquee__dot">✦</span>
+        <span>Branded Residences</span><span class="marquee__dot">✦</span>
+        <span>Strategic Partnerships</span><span class="marquee__dot">✦</span>
+        <span>Hospitality Development</span><span class="marquee__dot">✦</span>
+        <span>Brand Licensing</span><span class="marquee__dot">✦</span>
+        <span>Project Structuring</span><span class="marquee__dot">✦</span>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         2 · ABOUT
+         ============================================================ -->
+    <section class="about section" id="about">
+      <div class="container about__grid">
+        <div class="about__aside">
+          <p class="eyebrow" data-reveal><span class="eyebrow__line"></span>About JC Capital</p>
+          <span class="about__index" data-reveal>(01)</span>
+        </div>
+        <div class="about__body">
+          <h2 class="display about__lede" data-reveal-words>
+            A boutique advisory platform built where capital, global brands and
+            visionary development meet.
+          </h2>
+          <div class="about__cols">
+            <p data-reveal>
+              JC Capital is not a conventional capital-raising firm. We are a strategic
+              business development and advisory platform focused on structuring,
+              accelerating and enabling high-end real estate, hospitality, branded
+              residences and landmark investment projects.
+            </p>
+            <p data-reveal>
+              Operating across Brazil, Argentina and international markets, we act as a
+              discreet bridge — aligning developers, investors, funds, global brands and
+              hospitality groups around opportunities of lasting value. Our work is precise,
+              relationship-led and built for projects that aspire to define their category.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         3 · WHAT WE DO  /  EXPERTISE
+         ============================================================ -->
+    <section class="expertise section" id="expertise">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow" data-reveal><span class="eyebrow__line"></span>What We Do</p>
+          <h2 class="display section-head__title" data-reveal-words>
+            An integrated advisory practice for ambitious real estate and hospitality ventures.
+          </h2>
+        </div>
+
+        <div class="cards">
+          <!-- Each card: edit title + copy freely -->
+          <article class="card" data-reveal data-cursor="link">
+            <span class="card__num">01</span>
+            <h3 class="card__title">Strategic Advisory</h3>
+            <p class="card__text">Senior counsel on positioning, feasibility and the structuring decisions that define a project's trajectory and value.</p>
+          </article>
+
+          <article class="card" data-reveal data-cursor="link">
+            <span class="card__num">02</span>
+            <h3 class="card__title">Capital Solutions</h3>
+            <p class="card__text">Access to private capital, funds and international financing — matched precisely to the profile and stage of each opportunity.</p>
+          </article>
+
+          <article class="card" data-reveal data-cursor="link">
+            <span class="card__num">03</span>
+            <h3 class="card__title">Branded Residences &amp; Licensing</h3>
+            <p class="card__text">Pairing developers with the world's leading lifestyle, fashion, automotive and hospitality brands to create branded living concepts.</p>
+          </article>
+
+          <article class="card" data-reveal data-cursor="link">
+            <span class="card__num">04</span>
+            <h3 class="card__title">Hospitality &amp; Mixed-Use</h3>
+            <p class="card__text">Advisory for hotels, resorts and mixed-use destinations — from concept and operator strategy through to execution.</p>
+          </article>
+
+          <article class="card" data-reveal data-cursor="link">
+            <span class="card__num">05</span>
+            <h3 class="card__title">Project Structuring</h3>
+            <p class="card__text">Designing the commercial, financial and partnership architecture that makes complex developments investable and deliverable.</p>
+          </article>
+
+          <article class="card" data-reveal data-cursor="link">
+            <span class="card__num">06</span>
+            <h3 class="card__title">Strategic Partnerships</h3>
+            <p class="card__text">Convening developers, landowners, funds, brands and hospitality groups around shared, long-horizon objectives.</p>
+          </article>
+
+          <article class="card" data-reveal data-cursor="link">
+            <span class="card__num">07</span>
+            <h3 class="card__title">Business Development</h3>
+            <p class="card__text">Originating and advancing opportunities across Brazil, Argentina and select international markets.</p>
+          </article>
+
+          <article class="card" data-reveal data-cursor="link">
+            <span class="card__num">08</span>
+            <h3 class="card__title">Market Entry for Global Brands</h3>
+            <p class="card__text">Guiding international brands into new markets with the right local partners, projects and positioning.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         4 · BRANDED RESIDENCES / BPA PARTNERSHIP
+         ============================================================ -->
+    <section class="branded section" id="branded">
+      <div class="container branded__grid">
+        <div class="branded__intro">
+          <p class="eyebrow" data-reveal><span class="eyebrow__line"></span>Branded Residences · BPA</p>
+          <h2 class="display branded__title" data-reveal-words>
+            The art of differentiation, brought to Brazil.
+          </h2>
+          <p class="branded__lede" data-reveal>
+            Through its relationship with Branded Property Advisory (BPA), JC Capital brings
+            access to the world of luxury brand licensing and branded real estate concepts in
+            Brazil — transforming iconic lifestyle, fashion, automotive and hospitality brands
+            into ultra-luxury living.
+          </p>
+          <p class="branded__note" data-reveal>
+            Jennifer Chen is the Exclusive Representative of BPA in Brazil.
+          </p>
+
+          <ul class="pill-list" data-reveal>
+            <li>Luxury brand licensing</li>
+            <li>Brand DNA transfer</li>
+            <li>Developer–brand matching</li>
+            <li>Project concept &amp; positioning</li>
+            <li>License negotiation support</li>
+            <li>Design &amp; concept alignment</li>
+            <li>Marketing &amp; PR advantage</li>
+            <li>Premium customer experience</li>
+          </ul>
+        </div>
+
+        <div class="branded__stats">
+          <!-- BPA global track record -->
+          <div class="stat" data-reveal>
+            <span class="stat__num" data-count="10" data-suffix="BN+">0</span>
+            <span class="stat__label">USD in signed licensing agreements</span>
+          </div>
+          <div class="stat" data-reveal>
+            <span class="stat__num" data-count="15" data-suffix="+">0</span>
+            <span class="stat__label">Years of branded residences experience</span>
+          </div>
+          <div class="stat" data-reveal>
+            <span class="stat__num" data-count="160" data-suffix="+">0</span>
+            <span class="stat__label">Developer clients worldwide</span>
+          </div>
+          <div class="stat" data-reveal>
+            <span class="stat__num" data-count="95" data-suffix="+">0</span>
+            <span class="stat__label">Brands in the luxury portfolio</span>
+          </div>
+          <div class="stat stat--wide" data-reveal>
+            <span class="stat__num" data-count="150" data-suffix="+">0</span>
+            <span class="stat__label">Years of combined development experience</span>
+          </div>
+          <p class="branded__stats-note" data-reveal>
+            BPA — Singapore &amp; Miami based, with offices including São Paulo, Dubai &amp; Bangkok.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         5 · WHY BRANDED PROPERTIES
+         ============================================================ -->
+    <section class="why section" id="why">
+      <div class="container">
+        <div class="section-head section-head--center">
+          <p class="eyebrow eyebrow--center" data-reveal>Why Branded Properties</p>
+          <h2 class="display section-head__title" data-reveal-words>
+            A brand is no longer an accessory to a project. It is the project.
+          </h2>
+        </div>
+        <div class="why__grid">
+          <article class="why__item" data-reveal>
+            <span class="why__num">/ 01</span>
+            <h3 class="why__title">Differentiation</h3>
+            <p>Branded properties stand apart in crowded markets — a clear identity that commands attention, trust and premium perception.</p>
+          </article>
+          <article class="why__item" data-reveal>
+            <span class="why__num">/ 02</span>
+            <h3 class="why__title">Performance</h3>
+            <p>Stronger positioning translates into faster sales, marketing advantage and resilient value through every cycle.</p>
+          </article>
+          <article class="why__item" data-reveal>
+            <span class="why__num">/ 03</span>
+            <h3 class="why__title">Desirability</h3>
+            <p>Luxury buyers value design, quality, service and identity. A respected brand makes that promise tangible from day one.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         6 · GLOBAL NETWORK
+         ============================================================ -->
+    <section class="network section" id="network">
+      <div class="container network__grid">
+        <div class="network__text">
+          <p class="eyebrow" data-reveal><span class="eyebrow__line"></span>Global Network</p>
+          <h2 class="display network__title" data-reveal-words>
+            One bridge between local opportunity and global capital.
+          </h2>
+          <p class="network__lede" data-reveal>
+            JC Capital connects projects in Brazil and Argentina with brands, investors and
+            partners across the United States, Europe, the Middle East and Asia — a network
+            built on trust, access and decades of relationships.
+          </p>
+          <ul class="region-list" data-reveal>
+            <li><span>Brazil</span><i>São Paulo</i></li>
+            <li><span>Argentina</span><i>Buenos Aires</i></li>
+            <li><span>United States</span><i>Miami · New York</i></li>
+            <li><span>Europe</span><i>Strategic markets</i></li>
+            <li><span>Middle East</span><i>Dubai</i></li>
+            <li><span>Asia</span><i>Singapore · Bangkok</i></li>
+          </ul>
+        </div>
+        <!-- Animated network visual (canvas, drawn in JS) -->
+        <div class="network__visual" data-reveal>
+          <canvas id="networkCanvas" aria-hidden="true"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         7 · FOUNDER — JENNIFER CHEN
+         ============================================================ -->
+    <section class="founder section" id="founder">
+      <div class="container founder__grid">
+        <!-- REPLACE: founder portrait. Add /public/images/jennifer-chen.jpg
+             (portrait orientation, ~1000x1300). Remove .is-placeholder when added. -->
+        <figure class="founder__portrait is-placeholder" data-reveal>
+          <img src="/images/jennifer-chen.jpg" alt="Jennifer Chen, Founder and CEO of JC Capital"
+               loading="lazy" onerror="this.closest('figure').classList.add('img-missing')" />
+          <figcaption class="placeholder-tag">REPLACE · /images/jennifer-chen.jpg</figcaption>
+        </figure>
+
+        <div class="founder__body">
+          <p class="eyebrow" data-reveal><span class="eyebrow__line"></span>Founder &amp; CEO</p>
+          <h2 class="display founder__name" data-reveal-words>Jennifer Chen</h2>
+          <p class="founder__role" data-reveal>
+            Founder &amp; CEO, JC Capital · Exclusive Representative of BPA in Brazil ·
+            Business Development, Brazil &amp; Argentina at Horwath HTL
+          </p>
+          <div class="founder__bio" data-reveal>
+            <p>
+              Jennifer Chen is an entrepreneur and business executive with extensive experience
+              in business development, strategic partnerships, premium markets, real estate and
+              hospitality. Having studied and lived in the United States for over a decade, she
+              developed an international perspective on business, investment and luxury brands.
+            </p>
+            <p>
+              As Founder and CEO of JC Capital, Jennifer specializes in structuring projects,
+              raising capital and building strategic partnerships across the real estate and
+              hospitality sectors. She is also the Exclusive Representative of Branded Property
+              Advisory in Brazil and leads Business Development for Brazil and Argentina at
+              Horwath HTL.
+            </p>
+          </div>
+          <a href="https://www.linkedin.com/in/jennifer-chen-837a7790" target="_blank" rel="noopener"
+             class="link-arrow" data-reveal data-cursor="link">
+            Connect on LinkedIn <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         8 · STRATEGIC ECOSYSTEM
+         ============================================================ -->
+    <section class="ecosystem section" id="ecosystem">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow" data-reveal><span class="eyebrow__line"></span>Strategic Ecosystem</p>
+          <h2 class="display section-head__title" data-reveal-words>
+            The partners we connect around every landmark project.
+          </h2>
+        </div>
+        <ul class="ecosystem__list">
+          <li data-reveal><span>Developers</span></li>
+          <li data-reveal><span>Investors</span></li>
+          <li data-reveal><span>Landowners</span></li>
+          <li data-reveal><span>Global Brands</span></li>
+          <li data-reveal><span>Hospitality Groups</span></li>
+          <li data-reveal><span>Funds</span></li>
+          <li data-reveal><span>Legal &amp; Financial Partners</span></li>
+          <li data-reveal><span>Architects &amp; Designers</span></li>
+          <li data-reveal><span>Government &amp; Stakeholders</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         9 · SELECTED OPPORTUNITIES / PROJECT TYPES
+         ============================================================ -->
+    <section class="work section" id="work">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow" data-reveal><span class="eyebrow__line"></span>Selected Opportunities</p>
+          <h2 class="display section-head__title" data-reveal-words>
+            The categories where we create lasting value.
+          </h2>
+        </div>
+
+        <div class="work__list">
+          <!-- REPLACE the background image of each row with project imagery when available.
+               Set the CSS var --img on the row, e.g. style="--img:url('/images/branded.jpg')" -->
+          <a href="#contact" class="work__row" data-reveal data-cursor="view">
+            <span class="work__idx">01</span>
+            <span class="work__name">Branded Residences</span>
+            <span class="work__tag">Brand-led luxury living</span>
+          </a>
+          <a href="#contact" class="work__row" data-reveal data-cursor="view">
+            <span class="work__idx">02</span>
+            <span class="work__name">Luxury Villas</span>
+            <span class="work__tag">Bespoke private estates</span>
+          </a>
+          <a href="#contact" class="work__row" data-reveal data-cursor="view">
+            <span class="work__idx">03</span>
+            <span class="work__name">Hospitality &amp; Resorts</span>
+            <span class="work__tag">Hotels &amp; destinations</span>
+          </a>
+          <a href="#contact" class="work__row" data-reveal data-cursor="view">
+            <span class="work__idx">04</span>
+            <span class="work__name">Mixed-Use Developments</span>
+            <span class="work__tag">Integrated urban landmarks</span>
+          </a>
+          <a href="#contact" class="work__row" data-reveal data-cursor="view">
+            <span class="work__idx">05</span>
+            <span class="work__name">Land Development</span>
+            <span class="work__tag">Strategic master planning</span>
+          </a>
+          <a href="#contact" class="work__row" data-reveal data-cursor="view">
+            <span class="work__idx">06</span>
+            <span class="work__name">High-End Residential Communities</span>
+            <span class="work__tag">Lifestyle-led neighbourhoods</span>
+          </a>
+          <a href="#contact" class="work__row" data-reveal data-cursor="view">
+            <span class="work__idx">07</span>
+            <span class="work__name">International Brand Partnerships</span>
+            <span class="work__tag">Cross-border collaborations</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         10 · CTA + CONTACT
+         ============================================================ -->
+    <section class="contact section" id="contact">
+      <div class="container">
+        <div class="contact__cta">
+          <p class="eyebrow eyebrow--center" data-reveal>Get in touch</p>
+          <h2 class="contact__headline display" data-reveal-words>
+            Let's structure the next landmark project.
+          </h2>
+        </div>
+
+        <div class="contact__grid">
+          <!-- CONTACT FORM — wire up to your backend / form service.
+               Currently submits to a no-op handler in /src/js/form.js (shows a success state).
+               Replace the action/handler with Formspree, Netlify Forms, an API endpoint, etc. -->
+          <form class="contact-form" id="contactForm" data-reveal novalidate>
+            <div class="field">
+              <input type="text" id="name" name="name" required autocomplete="name" placeholder=" " />
+              <label for="name">Name</label>
+            </div>
+            <div class="field">
+              <input type="text" id="company" name="company" autocomplete="organization" placeholder=" " />
+              <label for="company">Company</label>
+            </div>
+            <div class="field">
+              <input type="email" id="email" name="email" required autocomplete="email" placeholder=" " />
+              <label for="email">Email</label>
+            </div>
+            <div class="field">
+              <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder=" " />
+              <label for="phone">Phone</label>
+            </div>
+            <div class="field">
+              <select id="projectType" name="projectType" required>
+                <option value="" disabled selected></option>
+                <option>Branded Residences</option>
+                <option>Luxury Villas</option>
+                <option>Hospitality &amp; Resorts</option>
+                <option>Mixed-Use Development</option>
+                <option>Land Development</option>
+                <option>Capital / Investment</option>
+                <option>Brand Partnership</option>
+                <option>Other</option>
+              </select>
+              <label for="projectType">Project Type</label>
+            </div>
+            <div class="field field--full">
+              <textarea id="message" name="message" rows="3" required placeholder=" "></textarea>
+              <label for="message">Message</label>
+            </div>
+            <button type="submit" class="btn btn--primary contact-form__submit" data-cursor="link">
+              <span>Send Message</span>
+            </button>
+            <p class="contact-form__status" id="formStatus" role="status" aria-live="polite"></p>
+          </form>
+
+          <aside class="contact__details" data-reveal>
+            <div class="contact__block">
+              <span class="contact__label">Email</span>
+              <a href="mailto:contato@jccapital.com.br" data-cursor="link">contato@jccapital.com.br</a>
+            </div>
+            <div class="contact__block">
+              <span class="contact__label">Phone</span>
+              <a href="tel:+551155057771" data-cursor="link">+55 11 5505 7771</a>
+            </div>
+            <div class="contact__block">
+              <span class="contact__label">WhatsApp</span>
+              <a href="https://wa.me/5511969002205" target="_blank" rel="noopener" data-cursor="link">+55 11 96900 2205</a>
+            </div>
+            <div class="contact__block">
+              <span class="contact__label">Office</span>
+              <address>
+                Rua Alcides Ricardini Neves, 12<br />
+                Conjunto 1010 · CEP 04575-050<br />
+                São Paulo / SP · Brazil
+              </address>
+            </div>
+            <div class="contact__block">
+              <span class="contact__label">Follow</span>
+              <div class="contact__social">
+                <a href="https://www.linkedin.com/in/jennifer-chen-837a7790" target="_blank" rel="noopener" data-cursor="link">LinkedIn</a>
+                <a href="https://www.instagram.com/jccapital_/" target="_blank" rel="noopener" data-cursor="link">Instagram</a>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <span class="brand__mark">JC</span>
+        <span class="brand__name">Capital</span>
+        <p class="footer__tag">Connecting capital, global brands and landmark developments.</p>
+      </div>
+      <nav class="footer__nav" aria-label="Footer">
+        <a href="#about">About</a>
+        <a href="#expertise">Expertise</a>
+        <a href="#branded">Branded Residences</a>
+        <a href="#founder">Founder</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="footer__meta">
+        <p>São Paulo · Brazil &amp; International</p>
+        <p class="footer__copy">© <span id="year">2026</span> JC Capital. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/js/main.js"></script>
+</body>
+</html>

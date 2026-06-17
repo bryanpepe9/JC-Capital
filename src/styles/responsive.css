@@ -1,0 +1,63 @@
+/* ============================================================
+   RESPONSIVE — tablet & mobile (mobile-first refinements)
+   ============================================================ */
+
+/* —— Tablet ——————————————————————————————————————————— */
+@media (max-width: 1024px) {
+  .cards { grid-template-columns: repeat(2, 1fr); }
+  .about__grid { grid-template-columns: 1fr; }
+  .branded__grid,
+  .network__grid,
+  .founder__grid,
+  .contact__grid { grid-template-columns: 1fr; }
+  .ecosystem__list { grid-template-columns: repeat(2, 1fr); }
+  .ecosystem__list li:nth-child(3n) { border-right: 1px solid var(--line-soft); }
+  .ecosystem__list li:nth-child(2n) { border-right: none; }
+  .network__visual { max-width: 460px; margin-inline: auto; }
+  .founder__portrait { max-width: 480px; }
+  .footer__inner { grid-template-columns: 1fr 1fr; }
+  .footer__meta { grid-column: 1 / -1; text-align: left; flex-direction: row; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+}
+
+/* —— Mobile ——————————————————————————————————————————— */
+@media (max-width: 720px) {
+  .nav { display: none; }
+  .menu-toggle { display: block; }
+
+  .why__grid { grid-template-columns: 1fr; gap: 0; }
+  .why__item { padding-block: 2rem; }
+  .why__item + .why__item { border-top: none; }
+  .why__item:first-child { border-top: 1px solid var(--line); }
+  .why__item { border-top: 1px solid var(--line); }
+
+  .about__cols { grid-template-columns: 1fr; gap: 1.4rem; }
+  .about__aside { flex-direction: row; align-items: center; justify-content: space-between; }
+
+  .branded__stats { grid-template-columns: 1fr; }
+  .stat--wide { grid-column: auto; }
+
+  .region-list { grid-template-columns: 1fr; }
+
+  .contact-form { grid-template-columns: 1fr; }
+
+  .work__row { grid-template-columns: 2.5rem 1fr; }
+  .work__tag { display: none; }
+
+  .hero__sub { font-size: 1.02rem; }
+  .hero__actions { flex-direction: column; align-items: stretch; }
+  .hero__actions .btn { width: 100%; }
+  .hero__scroll { display: none; }
+
+  .ecosystem__list { grid-template-columns: 1fr; }
+  .ecosystem__list li,
+  .ecosystem__list li:nth-child(3n),
+  .ecosystem__list li:nth-child(2n) { border-right: none; }
+
+  .footer__inner { grid-template-columns: 1fr; gap: 2rem; }
+}
+
+/* —— Small phones ——————————————————————————————————————— */
+@media (max-width: 420px) {
+  .cards { grid-template-columns: 1fr; }
+  :root { --gutter: 1.25rem; }
+}

@@ -1,0 +1,6 @@
+/* JC Capital — stylesheet entry point
+   Split for readability; bundled into one file at build time. */
+@import './base.css';
+@import './components.css';
+@import './sections.css';
+@import './responsive.css';

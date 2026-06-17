@@ -1,0 +1,195 @@
+/* ============================================================
+   COMPONENTS — chrome, nav, buttons, cursor, forms, footer
+   ============================================================ */
+
+/* —— Preloader ——————————————————————————————————————— */
+.preloader {
+  position: fixed; inset: 0; z-index: 9999;
+  background: var(--black);
+  display: grid; place-items: center;
+  transition: opacity 0.8s var(--ease), visibility 0.8s;
+}
+.preloader.is-done { opacity: 0; visibility: hidden; }
+.preloader__inner { display: flex; flex-direction: column; align-items: center; gap: 1.4rem; }
+.preloader__mark {
+  font-family: var(--serif); font-size: clamp(2.5rem, 8vw, 4.5rem); letter-spacing: 0.1em;
+  color: var(--ivory);
+}
+.preloader__bar { width: clamp(160px, 30vw, 280px); height: 1px; background: var(--line-soft); overflow: hidden; }
+.preloader__fill { display: block; height: 100%; width: 0%; background: var(--gold); }
+.preloader__count { font-size: 0.7rem; letter-spacing: 0.3em; color: var(--gray); }
+
+/* —— Custom cursor (pointer devices) ————————————————— */
+.cursor { position: fixed; top: 0; left: 0; z-index: 9000; pointer-events: none; mix-blend-mode: difference; display: none; }
+.cursor__dot {
+  position: absolute; top: 0; left: 0; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--ivory); transform: translate(-50%, -50%);
+}
+.cursor__ring {
+  position: absolute; top: 0; left: 0; width: 38px; height: 38px; border-radius: 50%;
+  border: 1px solid rgba(244,241,234,0.6); transform: translate(-50%, -50%);
+  transition: width 0.3s var(--ease), height 0.3s var(--ease), background 0.3s, border-color 0.3s;
+}
+body.cursor-active .cursor__ring { width: 64px; height: 64px; background: rgba(244,241,234,0.08); }
+.cursor.is-view .cursor__ring { width: 84px; height: 84px; background: var(--ivory); }
+.cursor.is-view::after {
+  content: 'View'; position: fixed; top: 0; left: 0; transform: translate(-50%,-50%);
+  font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--black);
+}
+@media (hover: hover) and (pointer: fine) {
+  .cursor { display: block; }
+  body { cursor: none; }
+  a, button, [data-cursor] { cursor: none; }
+}
+
+/* —— Header ——————————————————————————————————————————— */
+.header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  transition: transform var(--t-med) var(--ease), background var(--t-med), backdrop-filter var(--t-med), border-color var(--t-med);
+  border-bottom: 1px solid transparent;
+}
+.header.is-hidden { transform: translateY(-100%); }
+.header.is-scrolled {
+  background: rgba(10,10,9,0.72);
+  backdrop-filter: blur(14px) saturate(120%);
+  -webkit-backdrop-filter: blur(14px) saturate(120%);
+  border-bottom-color: var(--line-soft);
+}
+.header__inner {
+  max-width: var(--maxw); margin-inline: auto; padding: clamp(1rem,2.2vw,1.6rem) var(--gutter);
+  display: flex; align-items: center; justify-content: space-between; gap: 2rem;
+}
+
+.brand { display: inline-flex; align-items: baseline; gap: 0.4rem; }
+.brand__mark { font-family: var(--serif); font-size: 1.5rem; letter-spacing: 0.04em; color: var(--ivory); }
+.brand__name {
+  font-size: 0.72rem; letter-spacing: 0.34em; text-transform: uppercase; color: var(--gold);
+  font-weight: 500; transform: translateY(-1px);
+}
+
+.nav { display: flex; align-items: center; gap: clamp(1.4rem, 2.5vw, 2.8rem); }
+.nav__link {
+  position: relative; font-size: 0.82rem; letter-spacing: 0.06em; color: var(--ivory-dim);
+  transition: color var(--t-fast);
+}
+.nav__link::after {
+  content: ''; position: absolute; left: 0; bottom: -6px; width: 0; height: 1px; background: var(--gold);
+  transition: width var(--t-fast) var(--ease);
+}
+.nav__link:hover { color: var(--ivory); }
+.nav__link:hover::after { width: 100%; }
+.nav__cta {
+  font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ivory);
+  border: 1px solid var(--line); border-radius: 100px; padding: 0.6rem 1.3rem;
+  transition: background var(--t-fast), color var(--t-fast), border-color var(--t-fast);
+}
+.nav__cta:hover { background: var(--gold); color: var(--black); border-color: var(--gold); }
+
+/* Mobile toggle */
+.menu-toggle { display: none; width: 40px; height: 40px; position: relative; z-index: 1100; }
+.menu-toggle span {
+  position: absolute; left: 8px; right: 8px; height: 1.5px; background: var(--ivory);
+  transition: transform var(--t-fast) var(--ease), opacity var(--t-fast);
+}
+.menu-toggle span:nth-child(1) { top: 16px; }
+.menu-toggle span:nth-child(2) { top: 23px; }
+body.menu-open .menu-toggle span:nth-child(1) { transform: translateY(3.5px) rotate(45deg); }
+body.menu-open .menu-toggle span:nth-child(2) { transform: translateY(-3.5px) rotate(-45deg); }
+
+/* —— Mobile / fullscreen menu ————————————————————————— */
+.mobile-menu {
+  position: fixed; inset: 0; z-index: 1050; background: var(--black);
+  display: flex; flex-direction: column; justify-content: center; padding: var(--gutter);
+  clip-path: inset(0 0 100% 0); transition: clip-path 0.8s var(--ease); visibility: hidden;
+}
+body.menu-open .mobile-menu { clip-path: inset(0 0 0 0); visibility: visible; }
+.mobile-menu__nav { display: flex; flex-direction: column; gap: clamp(0.3rem, 2vw, 1rem); }
+.mobile-menu__link {
+  font-family: var(--serif); font-size: clamp(2rem, 9vw, 4rem); color: var(--ivory);
+  display: flex; align-items: baseline; gap: 1rem; opacity: 0; transform: translateY(30px);
+  transition: color var(--t-fast);
+}
+body.menu-open .mobile-menu__link { animation: menuIn 0.6s var(--ease) forwards; }
+body.menu-open .mobile-menu__link:nth-child(1) { animation-delay: 0.15s; }
+body.menu-open .mobile-menu__link:nth-child(2) { animation-delay: 0.21s; }
+body.menu-open .mobile-menu__link:nth-child(3) { animation-delay: 0.27s; }
+body.menu-open .mobile-menu__link:nth-child(4) { animation-delay: 0.33s; }
+body.menu-open .mobile-menu__link:nth-child(5) { animation-delay: 0.39s; }
+body.menu-open .mobile-menu__link:nth-child(6) { animation-delay: 0.45s; }
+.mobile-menu__link:hover { color: var(--gold); }
+.mobile-menu__idx { font-family: var(--sans); font-size: 0.8rem; color: var(--gold); letter-spacing: 0.2em; }
+.mobile-menu__foot {
+  margin-top: clamp(2rem,6vw,4rem); display: flex; flex-direction: column; gap: 0.4rem;
+  font-size: 0.9rem; color: var(--gray);
+}
+@keyframes menuIn { to { opacity: 1; transform: translateY(0); } }
+
+/* —— Buttons ——————————————————————————————————————————— */
+.btn {
+  position: relative; display: inline-flex; align-items: center; justify-content: center;
+  padding: 1rem 2rem; border-radius: 100px; overflow: hidden;
+  font-size: 0.82rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500;
+  transition: color var(--t-fast) var(--ease), border-color var(--t-fast), transform var(--t-fast);
+  will-change: transform;
+}
+.btn span { position: relative; z-index: 2; }
+.btn--primary { background: var(--gold); color: var(--black); }
+.btn--primary::before {
+  content: ''; position: absolute; inset: 0; background: var(--ivory);
+  transform: translateY(101%); transition: transform 0.5s var(--ease); z-index: 1;
+}
+.btn--primary:hover::before { transform: translateY(0); }
+.btn--ghost { border: 1px solid var(--line); color: var(--ivory); }
+.btn--ghost::before {
+  content: ''; position: absolute; inset: 0; background: var(--gold);
+  transform: translateY(101%); transition: transform 0.5s var(--ease); z-index: 1;
+}
+.btn--ghost:hover { color: var(--black); border-color: var(--gold); }
+.btn--ghost:hover::before { transform: translateY(0); }
+
+.link-arrow {
+  display: inline-flex; align-items: center; gap: 0.6rem; margin-top: 2rem;
+  font-size: 0.85rem; letter-spacing: 0.08em; color: var(--ivory); width: fit-content;
+  border-bottom: 1px solid var(--line); padding-bottom: 0.4rem; transition: gap var(--t-fast), border-color var(--t-fast);
+}
+.link-arrow span { transition: transform var(--t-fast) var(--ease); color: var(--gold); }
+.link-arrow:hover { border-color: var(--gold); }
+.link-arrow:hover span { transform: translateX(6px); }
+
+/* —— Footer ——————————————————————————————————————————— */
+.footer { border-top: 1px solid var(--line-soft); padding-block: clamp(3rem, 6vw, 5rem); }
+.footer__inner { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 2.5rem; align-items: start; }
+.footer__brand .brand__mark { font-size: 2rem; }
+.footer__brand .brand__name { font-size: 0.72rem; }
+.footer__tag { margin-top: 1.2rem; color: var(--gray); max-width: 22rem; font-size: 0.95rem; }
+.footer__nav { display: flex; flex-direction: column; gap: 0.8rem; font-size: 0.9rem; color: var(--ivory-dim); }
+.footer__nav a { width: fit-content; transition: color var(--t-fast); }
+.footer__nav a:hover { color: var(--gold); }
+.footer__meta { font-size: 0.85rem; color: var(--gray); display: flex; flex-direction: column; gap: 0.6rem; text-align: right; }
+.footer__copy { color: var(--gray-deep); }
+
+/* —— Contact form ————————————————————————————————————— */
+.contact-form { display: grid; grid-template-columns: 1fr 1fr; gap: 1.6rem 1.4rem; }
+.field { position: relative; }
+.field--full { grid-column: 1 / -1; }
+.field input, .field select, .field textarea {
+  width: 100%; background: transparent; border: none; border-bottom: 1px solid var(--line);
+  padding: 0.9rem 0 0.7rem; font-size: 1.02rem; color: var(--ivory); transition: border-color var(--t-fast);
+}
+.field textarea { resize: vertical; min-height: 3rem; }
+.field select { color: var(--ivory); }
+.field select option { background: var(--charcoal); color: var(--ivory); }
+.field label {
+  position: absolute; left: 0; top: 0.9rem; color: var(--gray); pointer-events: none;
+  font-size: 1.02rem; transition: transform var(--t-fast) var(--ease), font-size var(--t-fast), color var(--t-fast);
+  transform-origin: left;
+}
+.field input:focus, .field select:focus, .field textarea:focus { outline: none; border-bottom-color: var(--gold); }
+.field input:focus + label, .field input:not(:placeholder-shown) + label,
+.field textarea:focus + label, .field textarea:not(:placeholder-shown) + label,
+.field select:focus + label, .field select:valid + label {
+  transform: translateY(-1.5rem) scale(0.78); color: var(--gold); letter-spacing: 0.08em;
+}
+.field.has-error input, .field.has-error select, .field.has-error textarea { border-bottom-color: #c2664f; }
+.contact-form__submit { grid-column: 1 / -1; justify-self: start; margin-top: 0.5rem; }
+.contact-form__status { grid-column: 1 / -1; font-size: 0.9rem; color: var(--gold); min-height: 1.2rem; }
