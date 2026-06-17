@@ -268,6 +268,74 @@
     </section>
 
     <!-- ============================================================
+         3.5 · OPERATING SECTORS  (interactive expanding panels)
+         ============================================================ -->
+    <section class="sectors section" id="sectors">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow"><span class="eyebrow__line"></span><span data-i18n="sectors.eyebrow">Onde Atuamos</span></p>
+          <h2 class="display section-head__title" data-reveal-words data-i18n="sectors.title">
+            Da indústria à hospitalidade, conectamos capital e execução.
+          </h2>
+        </div>
+
+        <!-- Expanding panels on desktop (hover/focus), swipeable carousel on touch.
+             REPLACE the placeholder background of each panel with sector imagery:
+             add style="--img:url('/images/sector-industria.jpg')" to a .panel. -->
+        <div class="panels" id="sectorPanels" data-reveal>
+          <article class="panel is-open" data-panel tabindex="0" data-cursor="link" style="--accent: 28; --img: url('/images/industry.png')">
+            <span class="panel__bg" aria-hidden="true"></span>
+            <span class="panel__num">01</span>
+            <div class="panel__content">
+              <h3 class="panel__name" data-i18n="sector.1.name">Indústria</h3>
+              <p class="panel__desc" data-i18n="sector.1.desc">Capital e parcerias para operações industriais de grande porte.</p>
+            </div>
+          </article>
+          <article class="panel" data-panel tabindex="0" data-cursor="link" style="--accent: 200; --img: url('/images/technology.png')">
+            <span class="panel__bg" aria-hidden="true"></span>
+            <span class="panel__num">02</span>
+            <div class="panel__content">
+              <h3 class="panel__name" data-i18n="sector.2.name">Tecnologia</h3>
+              <p class="panel__desc" data-i18n="sector.2.desc">Estruturação e investimento para empresas de tecnologia em expansão.</p>
+            </div>
+          </article>
+          <article class="panel" data-panel tabindex="0" data-cursor="link" style="--accent: 96; --img: url('/images/agriculture.png')">
+            <span class="panel__bg" aria-hidden="true"></span>
+            <span class="panel__num">03</span>
+            <div class="panel__content">
+              <h3 class="panel__name" data-i18n="sector.3.name">Agricultura</h3>
+              <p class="panel__desc" data-i18n="sector.3.desc">Financiamento e parceiros estratégicos para o agronegócio.</p>
+            </div>
+          </article>
+          <article class="panel" data-panel tabindex="0" data-cursor="link" style="--accent: 18; --img: url('/images/construction.png')">
+            <span class="panel__bg" aria-hidden="true"></span>
+            <span class="panel__num">04</span>
+            <div class="panel__content">
+              <h3 class="panel__name" data-i18n="sector.4.name">Construção</h3>
+              <p class="panel__desc" data-i18n="sector.4.desc">Viabilização de projetos de construção e incorporação.</p>
+            </div>
+          </article>
+          <article class="panel" data-panel tabindex="0" data-cursor="link" style="--accent: 38; --img: url('/images/hospitality.png')">
+            <span class="panel__bg" aria-hidden="true"></span>
+            <span class="panel__num">05</span>
+            <div class="panel__content">
+              <h3 class="panel__name" data-i18n="sector.5.name">Hotelaria</h3>
+              <p class="panel__desc" data-i18n="sector.5.desc">Consultoria e capital para hotéis, resorts e hospitalidade.</p>
+            </div>
+          </article>
+          <article class="panel" data-panel tabindex="0" data-cursor="link" style="--accent: 210; --img: url('/images/infrastructure.png')">
+            <span class="panel__bg" aria-hidden="true"></span>
+            <span class="panel__num">06</span>
+            <div class="panel__content">
+              <h3 class="panel__name" data-i18n="sector.6.name">Infraestrutura</h3>
+              <p class="panel__desc" data-i18n="sector.6.desc">Estruturação de projetos de infraestrutura de longo prazo.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
          4 · BRANDED RESIDENCES / BPA PARTNERSHIP
          ============================================================ -->
     <section class="branded section" id="branded">
@@ -363,30 +431,36 @@
          6 · GLOBAL NETWORK
          ============================================================ -->
     <section class="network section" id="network">
-      <div class="container network__grid">
-        <div class="network__text">
-          <p class="eyebrow"><span class="eyebrow__line"></span><span data-i18n="network.eyebrow">Rede Global</span></p>
-          <h2 class="display network__title" data-reveal-words data-i18n="network.title">
-            Uma ponte entre a oportunidade local e o capital global.
-          </h2>
+      <div class="container">
+        <div class="network__head">
+          <div class="network__head-main">
+            <p class="eyebrow"><span class="eyebrow__line"></span><span data-i18n="network.eyebrow">Rede Global</span></p>
+            <h2 class="display network__title" data-reveal-words data-i18n="network.title">
+              Uma ponte entre a oportunidade local e o capital global.
+            </h2>
+          </div>
           <p class="network__lede" data-reveal data-i18n="network.lede">
             A JC Capital conecta projetos no Brasil e na Argentina a marcas, investidores e
             parceiros nos Estados Unidos, Europa, Oriente Médio e Ásia — uma rede construída
             sobre confiança, acesso e décadas de relacionamentos.
           </p>
-          <ul class="region-list" data-reveal>
-            <li><span data-i18n="region.1">Brasil</span><i data-i18n="region.1.sub">São Paulo</i></li>
-            <li><span data-i18n="region.2">Argentina</span><i data-i18n="region.2.sub">Buenos Aires</i></li>
-            <li><span data-i18n="region.3">Estados Unidos</span><i data-i18n="region.3.sub">Miami · Nova York</i></li>
-            <li><span data-i18n="region.4">Europa</span><i data-i18n="region.4.sub">Mercados estratégicos</i></li>
-            <li><span data-i18n="region.5">Oriente Médio</span><i data-i18n="region.5.sub">Dubai</i></li>
-            <li><span data-i18n="region.6">Ásia</span><i data-i18n="region.6.sub">Singapura · Bangkok</i></li>
-          </ul>
         </div>
-        <!-- Animated network visual (canvas, drawn in JS) -->
-        <div class="network__visual" data-reveal>
-          <canvas id="networkCanvas" aria-hidden="true"></canvas>
-        </div>
+      </div>
+
+      <!-- Interactive world map (inline SVG, built in src/js/map.js) — full width -->
+      <div class="network__map" data-reveal>
+        <div class="map" id="worldMap" aria-hidden="false"></div>
+      </div>
+
+      <div class="container">
+        <ul class="region-list" data-reveal>
+          <li><span data-i18n="region.1">Brasil</span><i data-i18n="region.1.sub">São Paulo</i></li>
+          <li><span data-i18n="region.2">Argentina</span><i data-i18n="region.2.sub">Buenos Aires</i></li>
+          <li><span data-i18n="region.3">Estados Unidos</span><i data-i18n="region.3.sub">Miami · Nova York</i></li>
+          <li><span data-i18n="region.4">Europa</span><i data-i18n="region.4.sub">Mercados estratégicos</i></li>
+          <li><span data-i18n="region.5">Oriente Médio</span><i data-i18n="region.5.sub">Dubai</i></li>
+          <li><span data-i18n="region.6">Ásia</span><i data-i18n="region.6.sub">China · Singapura · Bangkok</i></li>
+        </ul>
       </div>
     </section>
 

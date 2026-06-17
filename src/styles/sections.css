@@ -2,10 +2,11 @@
    SECTIONS — per-section layout & styling
    ============================================================ */
 
-/* —— Reveal base states (GSAP toggles .is-in) ——————————— */
+/* —— Reveal base states (.is-in is toggled when the element enters view) ——
+   Word reveals (.reveal-word) are masked by their overflow-hidden wrapper and
+   slide up via CSS transition — see initHeadlines() for the injected rules. */
 [data-reveal] { opacity: 0; transform: translateY(34px); transition: opacity 1s var(--ease), transform 1s var(--ease); }
 [data-reveal].is-in { opacity: 1; transform: none; }
-.reveal-word { display: inline-block; opacity: 0; transform: translateY(110%); }
 [data-reveal-line] { display: block; overflow: hidden; }
 [data-reveal-line] > span,
 .line-inner { display: block; transform: translateY(110%); }
@@ -107,15 +108,70 @@
 /* ============================================================
    GLOBAL NETWORK
    ============================================================ */
-.network__grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: clamp(2rem, 5vw, 5rem); align-items: center; }
-.network__title { font-size: var(--fs-h2); margin: 1.6rem 0 1.8rem; max-width: 13ch; }
-.network__lede { color: var(--ivory-dim); max-width: 40ch; line-height: 1.75; }
-.region-list { margin-top: 2.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem 2rem; }
-.region-list li { border-top: 1px solid var(--line-soft); padding-top: 0.9rem; }
-.region-list span { display: block; font-family: var(--serif); font-size: 1.25rem; color: var(--ivory); }
+.network__head { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: clamp(1.5rem, 4vw, 4rem); align-items: end; margin-bottom: clamp(2.5rem, 5vw, 4rem); }
+.network__title { font-size: var(--fs-h2); margin-top: 1.4rem; max-width: 16ch; }
+.network__lede { color: var(--ivory-dim); max-width: 42ch; line-height: 1.75; padding-bottom: 0.4rem; }
+
+/* Full-width map band */
+.network__map { width: 100%; max-width: 1760px; margin-inline: auto; padding-inline: clamp(1rem, 3vw, 3rem); }
+
+.region-list {
+  margin-top: clamp(2rem, 4vw, 3.2rem); display: grid; grid-template-columns: repeat(6, 1fr);
+  border-top: 1px solid var(--line); gap: 0;
+}
+.region-list li { border-top: none; padding: 1.4rem 1.2rem 0 0; transition: border-color var(--t-fast); }
+.region-list li.is-linked { cursor: pointer; }
+.region-list li.is-active { border-top-color: var(--gold); }
+.region-list span { display: block; font-family: var(--serif); font-size: 1.25rem; color: var(--ivory); transition: color var(--t-fast); }
 .region-list i { font-style: normal; font-size: 0.8rem; color: var(--gold); letter-spacing: 0.04em; }
-.network__visual { position: relative; aspect-ratio: 1 / 1; }
-.network__visual canvas { width: 100%; height: 100%; }
+.region-list li.is-active span { color: var(--gold-soft); }
+
+/* —— Interactive world map —— */
+.network__visual { position: relative; }
+.map { width: 100%; position: relative; }
+/* soft radial glow behind the map for depth */
+.map::before {
+  content: ''; position: absolute; inset: -8% -4%; z-index: 0; pointer-events: none;
+  background: radial-gradient(60% 60% at 42% 45%, rgba(201,169,106,0.10), transparent 70%);
+}
+.map__svg { position: relative; z-index: 1; width: 100%; height: auto; display: block; overflow: visible; }
+
+.map__country {
+  fill: #211e16; stroke: rgba(201, 169, 106, 0.08); stroke-width: 0.35;
+  transition: fill var(--t-med) var(--ease);
+}
+.map__country--active { fill: rgba(201, 169, 106, 0.42); stroke: rgba(201, 169, 106, 0.65); stroke-width: 0.7; }
+
+.map__arc { fill: none; stroke: var(--gold); stroke-width: 0.7; opacity: 0.32; transition: opacity var(--t-fast), stroke-width var(--t-fast); }
+.map__arc.is-active { opacity: 0.85; stroke-width: 1; }
+.map__pulse { fill: var(--ivory); opacity: 0; }
+
+.map__mk { cursor: pointer; }
+.map__ring { fill: none; stroke: var(--gold); stroke-width: 1; transform-box: fill-box; transform-origin: center; opacity: 0.5; }
+.map__dot { fill: var(--gold); transition: fill var(--t-fast); }
+.map__mk--hub .map__dot { fill: var(--ivory); }
+.map__mk--hub .map__ring { stroke: var(--ivory); }
+@media (prefers-reduced-motion: no-preference) {
+  .map__ring { animation: mkPulse 3s var(--ease-inout) infinite; }
+  .map__mk:nth-child(2n) .map__ring { animation-delay: 0.6s; }
+  .map__mk:nth-child(3n) .map__ring { animation-delay: 1.2s; }
+}
+@keyframes mkPulse {
+  0% { transform: scale(1); opacity: 0.5; }
+  70% { transform: scale(2.6); opacity: 0; }
+  100% { transform: scale(2.6); opacity: 0; }
+}
+.map__mk.is-active .map__dot { fill: var(--ivory); }
+.map__mk.is-active .map__ring { opacity: 0.9; }
+
+.map__label {
+  font-family: var(--sans); font-size: 9px; font-weight: 500; letter-spacing: 0.04em;
+  fill: var(--ivory); paint-order: stroke; stroke: rgba(10, 10, 9, 0.9); stroke-width: 2.4px;
+  opacity: 0; transition: opacity var(--t-fast);
+}
+.map__mk--hub .map__label { opacity: 0.9; fill: var(--gold-soft); }
+.map__mk:hover .map__label,
+.map__mk.is-active .map__label { opacity: 1; }
 
 /* ============================================================
    FOUNDER
@@ -182,3 +238,45 @@
 .contact__block a, .contact__block address { font-size: 1.05rem; color: var(--ivory-dim); width: fit-content; transition: color var(--t-fast); }
 .contact__block a:hover { color: var(--gold); }
 .contact__social { display: flex; gap: 1.2rem; }
+
+/* ============================================================
+   OPERATING SECTORS — expanding panels (desktop) / carousel (touch)
+   ============================================================ */
+.sectors { background: var(--black); }
+.panels { display: flex; gap: 6px; height: clamp(380px, 46vw, 560px); }
+.panel {
+  position: relative; flex: 1 1 0; min-width: 0; overflow: hidden; cursor: pointer;
+  border: 1px solid var(--line-soft); display: flex; flex-direction: column; justify-content: space-between;
+  padding: clamp(1.1rem, 1.8vw, 2rem); transition: flex-grow 0.7s var(--ease);
+}
+.panel.is-open { flex-grow: 4.4; }
+.panel:focus-visible { outline: 1px solid var(--gold); outline-offset: -3px; }
+
+.panel__bg {
+  position: absolute; inset: 0; z-index: 0;
+  background-image: var(--img, none); background-size: cover; background-position: center;
+  background-color: hsl(var(--accent, 30) 16% 9%);
+  transition: transform 1.2s var(--ease); transform: scale(1.02);
+}
+.panel.is-open .panel__bg { transform: scale(1); }
+.panel__bg::after {
+  content: ''; position: absolute; inset: 0;
+  background:
+    linear-gradient(180deg, rgba(10,10,9,0.15), rgba(10,10,9,0.88) 78%),
+    radial-gradient(120% 80% at 28% 0%, hsla(var(--accent, 30) 45% 52% / 0.12), transparent 62%);
+}
+
+.panel__num { position: relative; z-index: 2; font-size: 0.72rem; letter-spacing: 0.2em; color: var(--gold); }
+.panel__content { position: relative; z-index: 2; }
+.panel__name {
+  font-family: var(--serif); color: var(--ivory); line-height: 1.05;
+  font-size: clamp(1.35rem, 1.7vw, 2rem); white-space: nowrap;
+  writing-mode: vertical-rl; transform: rotate(180deg); transition: color var(--t-fast);
+}
+.panel.is-open .panel__name { writing-mode: horizontal-tb; transform: none; white-space: normal; }
+.panel__desc {
+  color: var(--ivory-dim); max-width: 32ch; font-size: 0.95rem; line-height: 1.6;
+  max-height: 0; opacity: 0; transform: translateY(12px); overflow: hidden;
+  transition: opacity 0.5s var(--ease) 0.1s, transform 0.5s var(--ease) 0.1s, max-height 0.6s var(--ease), margin 0.5s;
+}
+.panel.is-open .panel__desc { max-height: 160px; opacity: 1; transform: none; margin-top: 1.1rem; }

@@ -35,7 +35,8 @@ src/
   js/
     main.js             # app entry — preloader, boot, hero intro
     hero.js             # Three.js global-network globe
-    network.js          # 2D canvas constellation (Global Network section)
+    map.js              # interactive world map (d3-geo + TopoJSON)
+    sectors.js          # expanding-panels accordion (Operating Sectors)
     animations.js       # GSAP reveals, headline splits, stat counters
     nav.js              # header behaviour, mobile menu, smooth scroll
     cursor.js           # custom cursor (desktop only)
@@ -44,6 +45,8 @@ src/
     translations.js     # ALL copy, PT + EN (the source of truth)
 public/
   images/               # drop real images here (see images/README.md)
+  data/
+    countries-110m.json # world geometry for the map (Natural Earth 110m)
   favicon.svg           # replace with the official mark
 ```
 
@@ -61,6 +64,23 @@ public/
    site and can be updated in the Contact section + footer.
 5. **SEO / meta** — title, description and Open Graph tags are at the top of
    `index.html`.
+
+## Global Network map
+The "Rede Global / Global Network" section renders an interactive SVG world map
+([`src/js/map.js`](src/js/map.js)) from real Natural Earth geometry
+(`public/data/countries-110m.json`, projected with `d3-geo`). Presence countries
+are highlighted in gold and linked by animated arcs from the São Paulo hub.
+Hovering a city marker — or a row in the region list beside it — highlights the
+matching location both ways. To extend coverage, edit the `ACTIVE` country-id set
+and the `CITIES` list at the top of `map.js`.
+
+## Operating Sectors
+The "Onde Atuamos / Where We Operate" section ([`src/js/sectors.js`](src/js/sectors.js))
+is an expanding-panels accordion on desktop (hover/focus to open a sector) that
+becomes a swipeable carousel on touch screens. Sectors and copy live in
+`translations.js` (`sector.1..6.*`). Each panel shows a subtle tinted placeholder;
+to use real imagery, add `style="--img:url('/images/sector-industria.jpg')"` to a
+`.panel` in `index.html`.
 
 ## Languages (Portuguese / English)
 The site is bilingual. **Portuguese is the default**; visitors can switch with the

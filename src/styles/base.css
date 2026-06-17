@@ -120,15 +120,19 @@ em { font-style: italic; color: var(--gold-soft); }
   overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
 }
 
-/* Placeholder image tagging */
+/* Placeholder image tagging — the label only appears while the real image
+   is missing (the <img> onerror adds .img-missing). Once a real file is
+   dropped in /public/images, the label disappears automatically. */
 .placeholder-tag {
   position: absolute; inset: auto 0 0 0;
   font-family: var(--sans); font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase;
   color: var(--gold); background: rgba(10,10,9,0.78);
   padding: 0.5rem 0.8rem; text-align: center;
+  display: none;
 }
 .is-placeholder { position: relative; }
 /* When an <img> fails to load, show the labeled gradient block instead */
+.img-missing .placeholder-tag { display: block; }
 .founder__portrait.img-missing img { opacity: 0; }
 .founder__portrait.img-missing {
   background:

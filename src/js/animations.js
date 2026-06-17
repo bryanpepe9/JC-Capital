@@ -4,60 +4,50 @@
 
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
-/* Split [data-reveal-words] headings into animatable word spans. */
+/* Split [data-reveal-words] headings into masked, staggered word spans.
+   The reveal itself is pure CSS: each word sits below its overflow-hidden
+   wrapper and slides up when the heading gains .is-in (toggled on scroll by
+   initReveals, the same mechanism the body text uses). Opacity is never
+   touched — the mask does the hiding — so a word can never get stuck invisible. */
 export function initHeadlines(gsap) {
   document.querySelectorAll('[data-reveal-words]').forEach(el => {
     const words = el.textContent.trim().split(/\s+/)
     el.innerHTML = words
-      .map(w => `<span class="reveal-word-wrap"><span class="reveal-word">${w}</span></span>`)
+      .map((w, i) => `<span class="reveal-word-wrap"><span class="reveal-word" style="transition-delay:${(i * 0.045).toFixed(3)}s">${w}</span></span>`)
       .join(' ')
   })
 
-  // Style the wrappers (kept here so markup stays clean)
   const style = document.createElement('style')
   style.textContent =
     '.reveal-word-wrap{display:inline-block;overflow:hidden;vertical-align:top;}' +
-    '.reveal-word{display:inline-block;transform:translateY(110%);}'
+    '.reveal-word{display:inline-block;transform:translateY(110%);transition:transform .9s var(--ease);}' +
+    '[data-reveal-words].is-in .reveal-word{transform:translateY(0);}'
   document.head.appendChild(style)
 
   if (reduceMotion) {
-    document.querySelectorAll('.reveal-word').forEach(w => (w.style.transform = 'none'))
+    document.querySelectorAll('[data-reveal-words]').forEach(el => el.classList.add('is-in'))
   }
 }
 
-/* Generic fade/slide-in reveals + headline word staggers. */
+/* Scroll-triggered reveals for body elements and headings alike. */
 export function initReveals(gsap, ScrollTrigger) {
   if (reduceMotion) {
-    document.querySelectorAll('[data-reveal]').forEach(el => el.classList.add('is-in'))
+    document.querySelectorAll('[data-reveal], [data-reveal-words]').forEach(el => el.classList.add('is-in'))
     return
   }
 
-  // Simple element reveals (skip hero — handled by the intro timeline)
-  document.querySelectorAll('[data-reveal]').forEach(el => {
+  const reveal = (el, start) => {
     if (el.closest('.hero')) return
     ScrollTrigger.create({
       trigger: el,
-      start: 'top 88%',
+      start,
       once: true,
       onEnter: () => el.classList.add('is-in'),
     })
-  })
+  }
 
-  // Headline word reveals
-  document.querySelectorAll('[data-reveal-words]').forEach(el => {
-    if (el.closest('.hero')) return
-    const words = el.querySelectorAll('.reveal-word')
-    gsap.fromTo(words,
-      { yPercent: 110, y: 0 },
-      {
-        yPercent: 0,
-        duration: 1,
-        ease: 'power3.out',
-        stagger: 0.05,
-        scrollTrigger: { trigger: el, start: 'top 85%', once: true },
-      }
-    )
-  })
+  document.querySelectorAll('[data-reveal]').forEach(el => reveal(el, 'top 88%'))
+  document.querySelectorAll('[data-reveal-words]').forEach(el => reveal(el, 'top 85%'))
 }
 
 /* Animated number counters for the BPA stats. */
