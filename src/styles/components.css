@@ -11,10 +11,7 @@
 }
 .preloader.is-done { opacity: 0; visibility: hidden; }
 .preloader__inner { display: flex; flex-direction: column; align-items: center; gap: 1.4rem; }
-.preloader__mark {
-  font-family: var(--serif); font-size: clamp(2.5rem, 8vw, 4.5rem); letter-spacing: 0.1em;
-  color: var(--ivory);
-}
+.preloader__logo { width: clamp(180px, 42vw, 300px); height: auto; display: block; }
 .preloader__bar { width: clamp(160px, 30vw, 280px); height: 1px; background: var(--line-soft); overflow: hidden; }
 .preloader__fill { display: block; height: 100%; width: 0%; background: var(--gold); }
 .preloader__count { font-size: 0.7rem; letter-spacing: 0.3em; color: var(--gray); }
