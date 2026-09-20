@@ -125,9 +125,13 @@ export async function initMap() {
     g.dataset.ri = c.ri
     g.appendChild(el('circle', { class: 'map__ring', r: c.hub ? 7 : 5 }))
     g.appendChild(el('circle', { class: 'map__dot', r: c.hub ? 4 : 2.8 }))
-    const label = el('text', { class: 'map__label', x: 0, y: c.hub ? -14 : -11, 'text-anchor': 'middle' })
-    label.textContent = c.name
-    g.appendChild(label)
+    // Only the São Paulo hub is labelled — other markers are anonymous points of
+    // reach, so the map never reads as a list of offices in those cities.
+    if (c.hub) {
+      const label = el('text', { class: 'map__label', x: 0, y: -14, 'text-anchor': 'middle' })
+      label.textContent = c.name
+      g.appendChild(label)
+    }
     gMarks.appendChild(g)
 
     if (!markersByRi.has(c.ri)) markersByRi.set(c.ri, [])

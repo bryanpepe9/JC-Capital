@@ -5,6 +5,9 @@
 /* —— Tablet ——————————————————————————————————————————— */
 @media (max-width: 1024px) {
   .cards { grid-template-columns: repeat(2, 1fr); }
+  .card--wide { grid-column: 1 / -1; }
+  .pillars { grid-template-columns: repeat(3, 1fr); }
+  .steps { grid-template-columns: repeat(2, 1fr); }
   .about__grid { grid-template-columns: 1fr; }
   .branded__grid,
   .founder__grid,
@@ -37,6 +40,9 @@
   .stat--wide { grid-column: auto; }
 
   .region-list { grid-template-columns: repeat(2, 1fr); }
+  .pillars { grid-template-columns: repeat(2, 1fr); gap: 0 clamp(1.4rem, 4vw, 2.4rem); }
+  .steps { grid-template-columns: 1fr; gap: 0; }
+  .step { padding-block: 1.8rem; }
 
   /* Sectors become a swipeable carousel on touch (hover accordion needs a pointer) */
   .panels {
@@ -68,5 +74,7 @@
 /* —— Small phones ——————————————————————————————————————— */
 @media (max-width: 420px) {
   .cards { grid-template-columns: 1fr; }
+  .card--wide { grid-column: auto; }
+  .pillars { grid-template-columns: 1fr; }
   :root { --gutter: 1.25rem; }
 }

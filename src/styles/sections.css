@@ -26,7 +26,10 @@
 .hero__inner { position: relative; z-index: 2; width: 100%; max-width: var(--maxw); margin-inline: auto; padding-inline: var(--gutter); padding-top: 6rem; }
 .hero__eyebrow { margin-bottom: 2rem; }
 .hero__title { font-family: var(--serif); font-weight: 300; font-size: var(--fs-h1); letter-spacing: -0.015em; }
-.hero__title .line { display: block; overflow: hidden; }
+/* padding-bottom + equal negative margin extends the reveal mask below the
+   baseline so deep serif descenders (g, ç, p) aren't clipped, without adding
+   visible space between the two lines. */
+.hero__title .line { display: block; overflow: hidden; padding-bottom: 0.22em; margin-bottom: -0.22em; }
 .hero__sub { max-width: 38rem; margin-top: 2rem; color: var(--ivory-dim); font-size: clamp(1rem, 0.9rem + 0.5vw, 1.25rem); line-height: 1.7; }
 .hero__actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2.8rem; }
 
@@ -58,7 +61,13 @@
 /* ============================================================
    EXPERTISE CARDS
    ============================================================ */
-.cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line-soft); border: 1px solid var(--line-soft); }
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line-soft); border: 1px solid var(--line-soft); }
+/* Featured pillars: structuring (wide) + partnerships */
+.card--wide { grid-column: span 2; }
+.card--feature { background: var(--charcoal); }
+.card--feature::before { opacity: 1; }
+.card--feature .card__num { color: var(--gold-soft); }
+.card--feature .card__text { max-height: 260px; opacity: 1; margin-top: 1rem; }
 .card {
   background: var(--night); padding: clamp(1.6rem, 2.5vw, 2.6rem); min-height: clamp(220px, 24vw, 300px);
   display: flex; flex-direction: column; position: relative; overflow: hidden; transition: background var(--t-med) var(--ease);
@@ -280,3 +289,51 @@
   transition: opacity 0.5s var(--ease) 0.1s, transform 0.5s var(--ease) 0.1s, max-height 0.6s var(--ease), margin 0.5s;
 }
 .panel.is-open .panel__desc { max-height: 160px; opacity: 1; transform: none; margin-top: 1.1rem; }
+
+/* ============================================================
+   WHY JC CAPITAL — differentiator pillars
+   ============================================================ */
+.whyjc { background: var(--night); }
+.whyjc__lede { max-width: 46rem; margin: 1.4rem auto 0; color: var(--ivory-dim); line-height: 1.7; }
+.pillars {
+  display: grid; grid-template-columns: repeat(5, 1fr);
+  gap: clamp(1.4rem, 2.4vw, 2.4rem); margin-top: clamp(2.5rem, 5vw, 4.5rem);
+}
+.pillar { padding-top: 1.6rem; border-top: 1px solid var(--line); }
+.pillar__num { font-size: 0.72rem; letter-spacing: 0.2em; color: var(--gold); }
+.pillar__title { font-family: var(--serif); font-size: clamp(1.4rem, 2vw, 1.95rem); margin: 0.9rem 0 0.8rem; color: var(--ivory); }
+.pillar__desc { font-size: 0.9rem; line-height: 1.6; color: var(--gray); }
+
+/* ============================================================
+   BRANDED — qualitative aside (replaces numeric counters)
+   ============================================================ */
+.branded__aside {
+  display: flex; flex-direction: column; justify-content: center; gap: 1.4rem;
+  border: 1px solid var(--line-soft); padding: clamp(1.8rem, 3vw, 2.8rem);
+  background: linear-gradient(160deg, var(--charcoal-2), var(--black));
+}
+.branded__aside-quote { font-family: var(--serif); font-style: italic; font-size: clamp(1.6rem, 2.6vw, 2.3rem); color: var(--gold-soft); line-height: 1.15; }
+.branded__aside-text { color: var(--ivory-dim); font-size: 1.02rem; line-height: 1.7; }
+.branded__bpa-note { font-size: 0.8rem; color: var(--gray-deep); letter-spacing: 0.02em; border-top: 1px solid var(--line-soft); padding-top: 1.2rem; }
+
+/* ============================================================
+   ECOSYSTEM lede + FOUNDER social buttons
+   ============================================================ */
+.ecosystem__lede { color: var(--ivory-dim); max-width: 46rem; margin-top: 1.4rem; line-height: 1.7; }
+.founder__socials { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2.2rem; }
+.founder__social { padding: 0.85rem 1.9rem; }
+
+/* ============================================================
+   HERO sectors kicker + O QUE FAZEMOS (4-step process)
+   ============================================================ */
+.hero__sectors { margin-top: 1.6rem; font-size: 0.78rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold); font-weight: 500; }
+
+.expertise__lede { color: var(--ivory-dim); max-width: 54rem; margin-top: 1.4rem; line-height: 1.7; }
+.steps {
+  list-style: none; display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: clamp(1.5rem, 2.5vw, 2.6rem); margin-top: clamp(2.5rem, 5vw, 4.5rem);
+}
+.step { position: relative; padding-top: 2.1rem; border-top: 1px solid var(--line); }
+.step__num { display: block; font-family: var(--serif); font-size: clamp(2.2rem, 3.4vw, 3rem); color: var(--gold); line-height: 1; }
+.step__title { font-family: var(--serif); font-size: clamp(1.5rem, 2.1vw, 2.05rem); margin: 0.7rem 0 0.9rem; color: var(--ivory); }
+.step__desc { font-size: 0.92rem; line-height: 1.6; color: var(--gray); }
