@@ -337,3 +337,23 @@
 .step__num { display: block; font-family: var(--serif); font-size: clamp(2.2rem, 3.4vw, 3rem); color: var(--gold); line-height: 1; }
 .step__title { font-family: var(--serif); font-size: clamp(1.5rem, 2.1vw, 2.05rem); margin: 0.7rem 0 0.9rem; color: var(--ivory); }
 .step__desc { font-size: 0.92rem; line-height: 1.6; color: var(--gray); }
+
+/* ============================================================
+   JC FÓRUM & REGIONAL BASE (SORRISO/MT)
+   ============================================================ */
+.forum { background: linear-gradient(180deg, var(--night), var(--black)); }
+.forum__grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1.4rem, 2.6vw, 2.6rem); }
+.forum__item {
+  display: flex; flex-direction: column; border: 1px solid var(--line-soft);
+  padding: clamp(1.8rem, 3vw, 2.8rem); background: linear-gradient(160deg, var(--charcoal-2), var(--black));
+  transition: border-color var(--t-med) var(--ease);
+}
+.forum__item:hover { border-color: var(--line); }
+.forum__label { font-size: 0.72rem; letter-spacing: 0.2em; color: var(--gold); }
+.forum__item-title { font-family: var(--serif); font-size: clamp(1.45rem, 2.2vw, 2.1rem); color: var(--ivory); margin: 1rem 0 1.2rem; }
+.forum__text { color: var(--ivory-dim); font-size: 1rem; line-height: 1.75; }
+.forum__concept {
+  max-width: 62rem; margin: clamp(2.5rem, 5vw, 4rem) auto 0; text-align: center;
+  font-family: var(--serif); font-style: italic; color: var(--gold-soft);
+  font-size: clamp(1.3rem, 2.1vw, 1.9rem); line-height: 1.4;
+}

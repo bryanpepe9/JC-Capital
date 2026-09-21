@@ -129,6 +129,14 @@ export const translations = {
     'region.5': 'Oriente Médio', 'region.5.sub': 'Rede & relacionamentos',
     'region.6': 'Ásia', 'region.6.sub': 'Rede & relacionamentos',
 
+    'forum.eyebrow': 'JC Fórum & Base Regional',
+    'forum.title': 'Ambientes e bases de relacionamento para gerar negócios.',
+    'forum.f.title': 'JC Fórum de Negócios',
+    'forum.f.text': 'O JC Fórum de Negócios é uma iniciativa da JC Capital que reúne construtoras, incorporadoras, redes hoteleiras, investidores, fundos, instituições financeiras, empresários, arquitetos, operadores, marcas e especialistas em encontros estratégicos voltados à geração de negócios. O Fórum aproxima os diferentes players do ecossistema para originar oportunidades, desenvolver projetos, criar parcerias, intermediar ativos e conectar projetos a potenciais fontes de capital — com atuação especialmente nos setores imobiliário, de hospitalidade, infraestrutura e oportunidades relacionadas ao agronegócio.',
+    'forum.s.title': 'Sorriso · Base Regional — Mato Grosso',
+    'forum.s.text': 'A JC Capital mantém em Sorriso uma base regional para originação e desenvolvimento de negócios e projetos no Mato Grosso, com atuação nos setores imobiliário, de hospitalidade e agronegócio. A presença local permite identificar áreas, ativos e oportunidades, conectando proprietários e empresários a construtoras, incorporadoras, redes hoteleiras, operadores, arquitetos, marcas, fundos, instituições financeiras e investidores — atuando na estruturação e desenvolvimento de projetos, na intermediação de ativos e, quando aplicável, na conexão com fontes de capital e investimento.',
+    'forum.concept': 'Em ambas as frentes, a JC Capital cria ambientes e bases de relacionamento para mapear oportunidades, estruturar negócios, conectar os players certos e contribuir para sua viabilização.',
+
     'founder.eyebrow': 'Fundadora & CEO',
     'founder.role': 'Fundadora & CEO da JC Capital · Representante Exclusiva da BPA no Brasil · Desenvolvimento de Negócios, Brasil & Argentina, na Horwath HTL',
     'founder.bio1': 'Jennifer Chen é empreendedora e executiva de negócios com ampla experiência em desenvolvimento de negócios, parcerias estratégicas, mercados premium, real estate e hospitalidade. Tendo estudado e vivido nos Estados Unidos por mais de uma década, desenvolveu uma perspectiva internacional sobre negócios, investimento e marcas de luxo.',
@@ -309,6 +317,14 @@ export const translations = {
     'region.4': 'Europe', 'region.4.sub': 'Network & relationships',
     'region.5': 'Middle East', 'region.5.sub': 'Network & relationships',
     'region.6': 'Asia', 'region.6.sub': 'Network & relationships',
+
+    'forum.eyebrow': 'JC Forum & Regional Base',
+    'forum.title': 'Environments and relationship bases that generate business.',
+    'forum.f.title': 'JC Business Forum',
+    'forum.f.text': "The JC Business Forum is a JC Capital initiative that brings together builders, developers, hotel groups, investors, funds, financial institutions, entrepreneurs, architects, operators, brands and specialists in strategic meetings focused on generating business. The Forum brings the ecosystem's different players closer to originate opportunities, develop projects, create partnerships, intermediate assets and connect projects to potential sources of capital — with a particular focus on real estate, hospitality, infrastructure and agribusiness-related opportunities.",
+    'forum.s.title': 'Sorriso · Regional Base — Mato Grosso',
+    'forum.s.text': 'In Sorriso, JC Capital maintains a regional base for business and project origination and development across Mato Grosso, working in real estate, hospitality and agribusiness. Its local presence makes it possible to identify areas, assets and opportunities, connecting landowners and entrepreneurs with builders, developers, hotel groups, operators, architects, brands, funds, financial institutions and investors — structuring and developing projects, intermediating assets and, where applicable, connecting them to sources of capital and investment.',
+    'forum.concept': 'Across both fronts, JC Capital creates environments and relationship bases to map opportunities, structure deals, connect the right players and help make them happen.',
 
     'founder.eyebrow': 'Founder & CEO',
     'founder.role': 'Founder & CEO, JC Capital · Exclusive Representative of BPA in Brazil · Business Development, Brazil & Argentina at Horwath HTL',
