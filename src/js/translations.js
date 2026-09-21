@@ -78,8 +78,8 @@ export const translations = {
     'step.4.t': 'Viabilizar',
     'step.4.d': 'Acompanhamos a execução e destravamos as decisões que transformam a oportunidade em um negócio realizado.',
 
-    'sectors.eyebrow': 'Áreas de Atuação',
-    'sectors.title': 'Também atuamos em construção, hotelaria e indústria.',
+    'sectors.eyebrow': 'Setores que Atendemos',
+    'sectors.title': 'Além do nosso foco, também atuamos em construção, hotelaria e indústria.',
     'sectors.hint': 'Passe o mouse para explorar',
     'sector.1.name': 'Construção',
     'sector.1.desc': 'Estruturação e desenvolvimento de projetos de construção e incorporação.',
@@ -115,7 +115,7 @@ export const translations = {
     'why.1.title': 'Diferenciação',
     'why.1.text': 'Empreendimentos de marca se destacam em mercados saturados — uma identidade clara que conquista atenção, confiança e percepção premium.',
     'why.2.title': 'Performance',
-    'why.2.text': 'Um posicionamento mais forte se traduz em vendas mais rápidas, vantagem de marketing e valor resiliente em todos os ciclos.',
+    'why.2.text': 'Um posicionamento mais forte tende a favorecer a comercialização, a percepção de valor e a resiliência do projeto ao longo dos ciclos.',
     'why.3.title': 'Desejabilidade',
     'why.3.text': 'O comprador de luxo valoriza design, qualidade, serviço e identidade. Uma marca respeitada torna essa promessa tangível desde o primeiro dia.',
 
@@ -148,8 +148,8 @@ export const translations = {
     'eco.8': 'Jurídico & Estruturação',
     'eco.9': 'Governo & Stakeholders',
 
-    'work.eyebrow': 'Oportunidades Selecionadas',
-    'work.title': 'As categorias onde criamos valor duradouro.',
+    'work.eyebrow': 'Tipos de Projetos que Estruturamos',
+    'work.title': 'As categorias em que estruturamos e desenvolvemos negócios.',
     'work.1.name': 'Real Estate & Uso Misto', 'work.1.tag': 'Empreendimentos urbanos integrados',
     'work.2.name': 'Hospitalidade & Resorts', 'work.2.tag': 'Hotéis & destinos',
     'work.3.name': 'Infraestrutura', 'work.3.tag': 'Projetos de longo prazo',
@@ -259,8 +259,8 @@ export const translations = {
     'step.4.t': 'Enable',
     'step.4.d': 'We stay with execution and unlock the decisions that turn an opportunity into a delivered business.',
 
-    'sectors.eyebrow': 'Areas of Focus',
-    'sectors.title': 'We also operate across construction, hospitality and industry.',
+    'sectors.eyebrow': 'Sectors We Serve',
+    'sectors.title': 'Beyond our core focus, we also operate across construction, hospitality and industry.',
     'sectors.hint': 'Hover to explore',
     'sector.1.name': 'Construction',
     'sector.1.desc': 'Structuring and developing construction and real estate projects.',
@@ -296,7 +296,7 @@ export const translations = {
     'why.1.title': 'Differentiation',
     'why.1.text': 'Branded properties stand apart in crowded markets — a clear identity that commands attention, trust and premium perception.',
     'why.2.title': 'Performance',
-    'why.2.text': 'Stronger positioning translates into faster sales, marketing advantage and resilient value through every cycle.',
+    'why.2.text': 'Stronger positioning tends to support commercialization, perceived value and the resilience of a project across cycles.',
     'why.3.title': 'Desirability',
     'why.3.text': 'Luxury buyers value design, quality, service and identity. A respected brand makes that promise tangible from day one.',
 
@@ -329,8 +329,8 @@ export const translations = {
     'eco.8': 'Legal & Structuring',
     'eco.9': 'Government & Stakeholders',
 
-    'work.eyebrow': 'Selected Opportunities',
-    'work.title': 'The categories where we create lasting value.',
+    'work.eyebrow': 'Types of Projects We Structure',
+    'work.title': 'The categories where we structure and develop deals.',
     'work.1.name': 'Real Estate & Mixed-Use', 'work.1.tag': 'Integrated urban developments',
     'work.2.name': 'Hospitality &amp; Resorts', 'work.2.tag': 'Hotels &amp; destinations',
     'work.3.name': 'Infrastructure', 'work.3.tag': 'Long-horizon projects',

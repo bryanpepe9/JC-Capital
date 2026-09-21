@@ -14,6 +14,16 @@
    ============================================================ */
 import { t } from './i18n.js'
 
+/* ============================================================
+   CONTACT FORM ENDPOINT — ⚠️ REQUIRES SETUP TO ACTUALLY SEND.
+   Create a free form at https://formspree.io (or use Netlify Forms /
+   your own API) and paste its URL below, replacing REPLACE_WITH_FORM_ID.
+   Formspree gives you a URL like: https://formspree.io/f/xldbqwer
+   Until a valid endpoint is set, submissions will fail and show the
+   "please email us directly" message instead of a false success.
+   ============================================================ */
+const FORM_ENDPOINT = 'https://formspree.io/f/REPLACE_WITH_FORM_ID'
+
 export function initForm(lang = 'pt') {
   const form = document.getElementById('contactForm')
   const status = document.getElementById('formStatus')
@@ -46,9 +56,12 @@ export function initForm(lang = 'pt') {
     btn.disabled = true
 
     try {
-      // --- Replace this block with a real submission (see note above) ---
-      await new Promise(r => setTimeout(r, 800))
-      // -----------------------------------------------------------------
+      const resp = await fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: new FormData(form),
+      })
+      if (!resp.ok) throw new Error('Bad response ' + resp.status)
       form.reset()
       status.style.color = 'var(--gold)'
       status.textContent = t(lang, 'form.success')
