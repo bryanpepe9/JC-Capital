@@ -17,10 +17,13 @@ export function initHeadlines(gsap) {
       .join(' ')
   })
 
+  // padding-bottom (+ equal negative margin) extends the overflow mask below the
+  // baseline so serif descenders (g, p, ç) aren't clipped; the word starts at
+  // 135% so it stays fully hidden behind the taller mask before revealing.
   const style = document.createElement('style')
   style.textContent =
-    '.reveal-word-wrap{display:inline-block;overflow:hidden;vertical-align:top;}' +
-    '.reveal-word{display:inline-block;transform:translateY(110%);transition:transform .9s var(--ease);}' +
+    '.reveal-word-wrap{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:0.2em;margin-bottom:-0.2em;}' +
+    '.reveal-word{display:inline-block;transform:translateY(135%);transition:transform .9s var(--ease);}' +
     '[data-reveal-words].is-in .reveal-word{transform:translateY(0);}'
   document.head.appendChild(style)
 
