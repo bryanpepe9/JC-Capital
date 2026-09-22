@@ -121,7 +121,7 @@ export const translations = {
 
     'network.eyebrow': 'Alcance & Rede Internacional',
     'network.title': 'Uma base no Brasil, uma rede que alcança o mundo.',
-    'network.lede': 'A JC Capital é baseada em São Paulo, com presença em Sorriso (MT) — em parceria com a Soia Investimentos — e atua por meio de uma rede internacional de parceiros e relacionamentos. Conectamos projetos brasileiros a capital, marcas e especialistas no exterior, sempre através de relações de confiança, e não de escritórios próprios.',
+    'network.lede': 'A JC Capital é baseada em São Paulo, com presença em Sorriso (MT), e atua por meio de uma rede internacional de parceiros e relacionamentos. Conectamos projetos brasileiros a capital, marcas e especialistas no exterior, sempre através de relações de confiança, e não de escritórios próprios.',
     'region.1': 'Brasil', 'region.1.sub': 'São Paulo · Sorriso (MT)',
     'region.2': 'Argentina', 'region.2.sub': 'Rede de parceiros',
     'region.3': 'Estados Unidos', 'region.3.sub': 'Rede & relacionamentos',
@@ -310,7 +310,7 @@ export const translations = {
 
     'network.eyebrow': 'Reach & International Network',
     'network.title': 'A base in Brazil, a network that reaches the world.',
-    'network.lede': 'JC Capital is based in São Paulo, with a presence in Sorriso (MT) — in partnership with Soia Investimentos — and operates through an international network of partners and relationships. We connect Brazilian projects with capital, brands and specialists abroad, always through trusted relationships, not owned offices.',
+    'network.lede': 'JC Capital is based in São Paulo, with a presence in Sorriso (MT), and operates through an international network of partners and relationships. We connect Brazilian projects with capital, brands and specialists abroad, always through trusted relationships, not owned offices.',
     'region.1': 'Brazil', 'region.1.sub': 'São Paulo · Sorriso (MT)',
     'region.2': 'Argentina', 'region.2.sub': 'Partner network',
     'region.3': 'United States', 'region.3.sub': 'Network & relationships',
